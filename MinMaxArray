@@ -51,3 +51,50 @@ public class MinMax{
 		
 	}
 }
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// seeond method 
+package array;
+
+public class MinMax {
+	static class Pair{
+		int min;
+		int max;
+	}
+	static Pair getMinMax(int arr[] , int n) {
+		Pair minmax = new Pair();
+		// for only one element
+		if (n==1) {
+			minmax.min = arr[0];
+			minmax.max = arr[0];
+			return minmax;
+		}
+		
+		for (int i=1 ; i<n ; i++) {
+			if (arr[i] > minmax.max) {
+				minmax.max = arr[i];
+				minmax.min = arr[0];
+			}
+			else if (arr[i] < minmax.min){
+				minmax.min = arr[i];
+			}
+		}
+		
+		
+		return minmax;
+	}
+	
+	public static void main(String args[]) {
+		System.out.println("Minimum and maximum of a array : ");
+		int arr[] = {1,2,4,0,-2,1113,4,5,6,-1111};
+		int n = arr.length;
+		Pair minmax = getMinMax(arr,n);
+		System.out.println("Maximum : " + minmax.max);
+		System.out.println("Minimum : "  + minmax.min);
+		
+		
+	}
+}
