@@ -1,0 +1,53 @@
+package array;
+
+public class MinMax{
+	static class Pair{
+		int min;
+		int max;
+	}
+	static Pair getMinMax(int arr[] , int n){
+		Pair minmax = new Pair();
+		
+		// if there is only one element 
+		if (n==1) {
+			minmax.min = arr[0];
+			minmax.max = arr[0];
+			return minmax;
+		}
+		
+		// if there are more than one elements 
+		if (arr[0]>arr[1]) {
+			minmax.max = arr[0];
+			minmax.min = arr[1];
+		}
+		else {
+			minmax.max = arr[1];
+			minmax.min = arr[0];
+		}
+		
+		for (int i=2 ; i<n ; i++) {
+			if (arr[i]>minmax.max) {
+				minmax.max = arr[i];
+			}
+//			else if(arr[i]<minmax.min){
+//				minmax.min = arr[i];
+//			}
+			else {
+				minmax.min = arr[i];
+			}
+		}	
+		return minmax;
+	}
+	
+	// Driver code to check 
+	public static void main(String args[]) {
+		System.out.println("Minimum and Maximum of a Array : ");
+		int arr[] = {1,2,3,0,5,-6};
+		int n = 6;
+		Pair minmax = getMinMax(arr, n);
+		System.out.printf("\n Maximum element is : %d",minmax.max);
+		System.out.printf("\n Minimum element is : %d",minmax.min);
+		
+		
+	}
+}
