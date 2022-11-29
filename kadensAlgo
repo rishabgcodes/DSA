@@ -1,0 +1,27 @@
+package array;
+//Java program to print largest contiguous array sum
+public class Kadens_Algorithm {
+	public static void main(String args[]) {
+		System.out.println("Kadens Algorithm:");
+		int[] arr = { -2, -3, 4, -1, -2, 1, 5, -3 };
+		System.out.println("Java program to print largest contiguous array sum : " + maxSumSubArray(arr));
+		System.out.println();
+		
+	}
+		static int maxSumSubArray(int a[]) {
+			int maxSum = 0;
+			int currSum = 0;
+			for(int i=0 ; i<a.length ; i++) {
+				currSum = currSum + a[i];
+				if (currSum > maxSum) {
+					maxSum = currSum;
+				}
+				if (currSum<0) {
+					currSum = 0;
+				}
+			}
+			return maxSum;
+		}
+	
+	}
+// Time complexity is O(n)   since , there is only one loop is used . 
