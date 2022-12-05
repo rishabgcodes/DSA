@@ -1,0 +1,31 @@
+package array;
+
+public class BuySellStocks {
+
+	static int maxProfit(int prices[] , int n) {
+		int max_profit = 0;
+		int buy = prices[0];
+		for (int i=0 ; i<n ; i++) {
+			// checking for minimum buy if buy is greater than reduce it
+			if (buy>prices[i]) {
+				buy = prices[i];
+			}
+//			System.out.println(buy);
+			// checking for maximum profit 
+			else if(prices[i] - buy > max_profit) {
+				max_profit = prices[i] - buy;
+			}
+		}
+		
+		return max_profit;
+	}
+	
+	public static void main(String[] args) {
+		int prices[] = {7,1,5,3,6,4} ; 
+		int n = prices.length;
+		int max_profit = maxProfit(prices , n);
+		System.out.println(max_profit);
+		
+	}
+
+}
