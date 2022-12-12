@@ -1,0 +1,30 @@
+package array;
+
+public class ContainsWater {
+	
+	static int maxArea(int heights[]) {
+		int r=0;
+		int b1=0;
+		int b2=heights.length-1;
+		while(b1<b2) {
+			int currMax = (b2-b1)*Math.min(heights[b1],heights[b2]);
+//			int currMax = b2-b1;
+			System.out.println(currMax);
+			if (heights[b1]>heights[b2]) {
+				b2--;
+			}
+			else {
+				b1++;
+			}
+			r = Math.max(r,currMax);
+		}
+		
+		
+		return r;
+	}
+	
+	public static void main(String args[]) {
+		int heights[] = {1,8,6,2,5,4,8,3,7};
+		System.out.println(maxArea(heights));
+	}
+}
