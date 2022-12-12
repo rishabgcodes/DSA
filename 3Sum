@@ -1,0 +1,29 @@
+package array;
+
+public class Sum3 {
+//	-------------------brute force solution----------------------------
+	static boolean checkTriplet(int arr[] , int n) {
+		for (int i=0 ; i<arr.length-2 ; i++) {
+			for (int j=i+1 ; j<arr.length-1 ;j++) {
+				for (int k=j+1;k<arr.length;k++) {
+					if (arr[i]+arr[j]+arr[k]==n) {
+						System.out.println("Triplets are " + arr[i] + ", " + arr[j] + ", " + arr[k]);
+//						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String args[]) {
+		int A[] = { 0, -1,0, 2, -3, 1};
+		int x = 2;
+		if (checkTriplet(A,x)) {
+//			System.out.println("Yes");
+		}
+		else {
+//			System.out.println("No");
+		}
+	}
+}
